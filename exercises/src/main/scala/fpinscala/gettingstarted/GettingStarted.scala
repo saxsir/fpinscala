@@ -35,6 +35,7 @@ object MyModule {
   }
 
   // Exercise 1: Write a function to compute the nth fibonacci number
+  //
   // TODO: not 末尾再帰
   // def fib(n: Int): Int = {
   //   if (n < 2) n
@@ -152,14 +153,18 @@ object PolymorphicFunctions {
 
   // Exercise 2: Implement a polymorphic function to check whether
   // an `Array[A]` is sorted
-  def isSorted[A](as: Array[A], gt: (A,A) => Boolean): Boolean = {
+  def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
     @annotation.tailrec
-    def loop(n: Int): Boolean =
+    def go(n: Int): Boolean = {
+      // 最後までいったらtrue
       if (n >= as.length-1) true
-      else if (gt(as(n), as(n+1))) false
-      else loop(n+1)
+      // n番目と次の要素を比較, 比較関数がtrueでなければfalseを返す
+      else if (!ordered(as(n), as(n+1))) false
+      // n+1番目とn+2番目の要素を...ry
+      else go(n+1)
+    }
 
-    loop(0)
+    go(0)
   }
 
   // Polymorphic functions are often so constrained by their type

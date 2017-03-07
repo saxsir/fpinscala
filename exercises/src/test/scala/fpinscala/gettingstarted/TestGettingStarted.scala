@@ -1,6 +1,5 @@
 import org.scalatest.FunSuite
-import fpinscala.gettingstarted.MyModule
-import fpinscala.gettingstarted.PolymorphicFunctions
+import fpinscala.gettingstarted._
 
 
 class TestGettingStarted extends FunSuite {
@@ -16,6 +15,6 @@ class TestGettingStarted extends FunSuite {
   }
 
   test("ex 2.2: isSorted") {
-    // assert(PolymorphicFunctions.isSorted(Array(1,2,3,4), (x: Int, y:Int) => x < y))
+    assert(PolymorphicFunctions.isSorted(Array(1,2,3,4), (x: Int, y:Int) => x < y) == true)
   }
 }
