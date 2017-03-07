@@ -65,4 +65,11 @@ object List { // `List` companion object. Contains functions for creating and wo
   def foldLeft[A,B](l: List[A], z: B)(f: (B, A) => B): B = ???
 
   def map[A,B](l: List[A])(f: A => B): List[B] = ???
-}
+
+  // ex 3.16
+  // Try using `foldRight`. You shouldn't need to resort to an explicitly recursive function.
+  def addOne(l: List[Int]): List[Int] =
+    foldRight(l, Nil:List[Int])((h,t) => Cons(h+1,t))
+  }
+
+  // ex 3.17
