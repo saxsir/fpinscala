@@ -14,4 +14,8 @@ class TestDataStructures extends FunSuite {
 
     assert(x == 3)
   }
+
+  test("ex 3.2: List.tail") {
+    assert(List.tail(List(1, 2, 3, 4, 5)) == List(2,3,4,5))
+  }
 }
