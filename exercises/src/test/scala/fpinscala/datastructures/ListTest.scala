@@ -18,4 +18,8 @@ class TestDataStructures extends FunSuite {
   test("ex 3.2: List.tail") {
     assert(List.tail(List(1, 2, 3, 4, 5)) == List(2,3,4,5))
   }
+
+  test("ex 3.3: List.setHead") {
+    assert(List.setHead(List(1, 2, 3, 4, 5), 0) == List(0,2,3,4,5))
+  }
 }
