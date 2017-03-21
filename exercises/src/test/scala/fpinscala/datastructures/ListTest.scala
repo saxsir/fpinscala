@@ -39,4 +39,37 @@ class TestDataStructures extends FunSuite {
     assert(List.dropWhile(List(2, 4, 6, 3, 4, 5), overFive) == List(6, 3, 4, 5))
   }
 
+  test("ex 3.6: List.init") {
+    assert(List.init(List(1,2,3,4,5)) == List(1,2,3,4))
+  }
+
+  test("ex 3.7: product using foldRight") {
+    /*
+     * 無理。
+     * foldRightは最後までリストをたどる。
+     */
+  }
+
+  test("ex 3.8: passes Nil and Cons to foldRight") {
+    /*
+     * Cons(1, foldRight(Cons(2, Cons(3, Nil)), Nil:List[Int])(Cons(_,_)))
+     * ...
+     *
+     * ダメだ分からん。答え読んでも何を言っているのかよーわからん。
+     *
+     */
+  }
+
+  test("ex 3.9: List.length using foldRight") {
+    // def foldRight[A,B](as: List[A], z: B)(f: (A, B) => B): B
+    // as match {
+    //   case Nil => z
+    //   case Cons(x, xs) => f(x, foldRight(xs, z)(f))
+    // }
+    assert(List.length(List(1,2,3,4,5)) == 5)
+  }
+
+
+
+
 }

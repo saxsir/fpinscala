@@ -72,10 +72,14 @@ object List { // `List` companion object. Contains functions for creating and wo
     case _ => l
   }
 
+  def init[A](l: List[A]): List[A] = l match {
+    case Nil => Nil
+    case Cons(_, Nil) => Nil
+    case Cons(h, t) => Cons(h, init(t))
+  }
 
-  def init[A](l: List[A]): List[A] = ???
-
-  def length[A](l: List[A]): Int = ???
+  def length[A](l: List[A]): Int =
+    foldRight(l, 0)((_, n) => n + 1)
 
   def foldLeft[A,B](l: List[A], z: B)(f: (B, A) => B): B = ???
 
