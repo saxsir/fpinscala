@@ -51,9 +51,15 @@ object List { // `List` companion object. Contains functions for creating and wo
     foldRight(ns, 1.0)(_ * _) // `_ * _` is more concise notation for `(x,y) => x * y`; see sidebar
 
 
-  def tail[A](l: List[A]): List[A] = ???
+  def tail[A](l: List[A]): List[A] = l match {
+    case Nil => l
+    case Cons(h, t) => t
+  }
 
-  def setHead[A](l: List[A], h: A): List[A] = ???
+  def setHead[A](l: List[A], h: A): List[A] = l match {
+    case Nil => List(h)
+    case Cons(_, t) => Cons(h, t)
+  }
 
   def drop[A](l: List[A], n: Int): List[A] = ???
 
@@ -66,4 +72,12 @@ object List { // `List` companion object. Contains functions for creating and wo
   def foldLeft[A,B](l: List[A], z: B)(f: (B, A) => B): B = ???
 
   def map[A,B](l: List[A])(f: A => B): List[B] = ???
+
+  // ex 3.16
+  // Try using `foldRight`. You shouldn't need to resort to an explicitly recursive function.
+  // def addOne(l: List[Int]): List[Int] =
+  //   foldRight(l, Nil:List[Int])((h,t) => Cons(h+1,t))
+  // }
+
+  // ex 3.17
 }
