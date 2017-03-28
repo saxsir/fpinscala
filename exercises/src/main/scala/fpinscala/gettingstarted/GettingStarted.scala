@@ -35,20 +35,9 @@ object MyModule {
   }
 
   // Exercise 1: Write a function to compute the nth fibonacci number
-  //
-  // TODO: not 末尾再帰
-  // def fib(n: Int): Int = {
-  //   if (n < 2) n
-  //   else fib(n - 1) + fib(n - 2)
-  // }
-
-  // 0, 1, 1, 2, 3, 5, 8
   def fib(n: Int): Int = {
-    @annotation.tailrec
-    def recursive(n: Int, prev: Int, cur: Int): Int =
-      if (n == 0) prev
-      else recursive(n - 1, cur, prev + cur)
-    recursive(n, 0, 1)
+    if (n < 2) n
+    else fib(n - 1) + fib(n - 2)
   }
 
   // This definition and `formatAbs` are very similar..
